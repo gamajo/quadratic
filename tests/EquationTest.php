@@ -22,39 +22,39 @@ require dirname(__DIR__) . '/src/InvalidArgumentException.php';
 class EquationTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @covers            \Gamajo\Quadratic\Equation::__construct
-     * @covers            \Gamajo\Quadratic\Equation::hasValidArguments
-     * @uses              \Gamajo\Quadratic\Equation
+     * @covers            \Gamajo\Quadratic\BasicQuadraticEquation::__construct
+     * @covers            \Gamajo\Quadratic\BasicQuadraticEquation::hasValidArguments
+     * @uses              \Gamajo\Quadratic\BasicQuadraticEquation
      * @expectedException \Gamajo\Quadratic\InvalidArgumentException
      */
     public function testCannotBeConstructedFromNonIntegerValue()
     {
         $this->setExpectedExceptionFromAnnotation();
-        new Equation(null, true, '6');
+        new BasicQuadraticEquation(null, true, '6');
     }
 
     /**
-     * @covers \Gamajo\Quadratic\Equation::__construct
-     * @covers \Gamajo\Quadratic\Equation::hasValidArguments
-     * @uses   \Gamajo\Quadratic\Equation
+     * @covers \Gamajo\Quadratic\BasicQuadraticEquation::__construct
+     * @covers \Gamajo\Quadratic\BasicQuadraticEquation::hasValidArguments
+     * @uses   \Gamajo\Quadratic\BasicQuadraticEquation
      */
     public function testObjectCanBeConstructedFromThreeIntegerValues()
     {
-        $e = new Equation(1, 2, 3);
+        $e = new BasicQuadraticEquation(1, 2, 3);
 
-        $this->assertInstanceOf(Equation::class, $e);
+        $this->assertInstanceOf(QuadraticEquation::class, $e);
     }
 
     /**
-     * @covers \Gamajo\Quadratic\Equation::__construct
-     * @covers \Gamajo\Quadratic\Equation::getA
-     * @covers \Gamajo\Quadratic\Equation::getB
-     * @covers \Gamajo\Quadratic\Equation::getC
-     * @uses   \Gamajo\Quadratic\Equation
+     * @covers \Gamajo\Quadratic\BasicQuadraticEquation::__construct
+     * @covers \Gamajo\Quadratic\BasicQuadraticEquation::getA
+     * @covers \Gamajo\Quadratic\BasicQuadraticEquation::getB
+     * @covers \Gamajo\Quadratic\BasicQuadraticEquation::getC
+     * @uses   \Gamajo\Quadratic\BasicQuadraticEquation
      */
     public function testObjectCanReturnSingleValues()
     {
-        $e = new Equation(1, 2, 3);
+        $e = new BasicQuadraticEquation(1, 2, 3);
 
         $this->assertSame(1, $e->getA());
         $this->assertSame(2, $e->getB());
@@ -62,13 +62,13 @@ class EquationTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \Gamajo\Quadratic\Equation::__construct
-     * @covers \Gamajo\Quadratic\Equation::getArgsAsArray
-     * @uses   \Gamajo\Quadratic\Equation
+     * @covers \Gamajo\Quadratic\BasicQuadraticEquation::__construct
+     * @covers \Gamajo\Quadratic\BasicQuadraticEquation::getArgsAsArray
+     * @uses   \Gamajo\Quadratic\BasicQuadraticEquation
      */
     public function testObjectCanReturnArrayOfValues()
     {
-        $e = new Equation(1, 2, 3);
+        $e = new BasicQuadraticEquation(1, 2, 3);
 
         $this->assertSame([1, 2, 3], $e->getArgsAsArray());
     }

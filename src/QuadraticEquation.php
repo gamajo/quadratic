@@ -16,19 +16,20 @@ namespace Gamajo\Quadratic;
  *
  * @package Gamajo\Quadratic
  */
-interface Equation
+interface QuadraticEquation extends Equation
 {
     /**
-     * Return args as an array.
-     *
-     * @return array
+     * @return int
      */
-    public function getArgsAsArray();
+    public function getA();
 
     /**
-     * Check if arguments are valid.
-     *
-     * @return bool
+     * @return int
      */
-    public function hasValidArguments();
+    public function getB();
+
+    /**
+     * @return int
+     */
+    public function getC();
 }

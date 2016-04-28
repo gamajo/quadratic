@@ -25,14 +25,14 @@ class SolverTest extends \PHPUnit_Framework_TestCase
 {
     public function testObjectCanBeConstructedWithEquation()
     {
-        $s = new Solver(new Equation(1, 5, 6));
+        $s = new Solver(new BasicQuadraticEquation(1, 5, 6));
 
         $this->assertInstanceOf(Solver::class, $s);
     }
 
     public function testPrecisionSetCorrectly()
     {
-        $s = new Solver(new Equation(3, 4, 5));
+        $s = new Solver(new BasicQuadraticEquation(3, 4, 5));
 
         $s->setPrecision(2);
 
@@ -43,7 +43,7 @@ class SolverTest extends \PHPUnit_Framework_TestCase
     {
         $this->setExpectedException('\Gamajo\Quadratic\InvalidArgumentException');
 
-        $s = new Solver(new Equation(3, 4, 5));
+        $s = new Solver(new BasicQuadraticEquation(3, 4, 5));
 
         $s->setPrecision(- 2);
     }
@@ -53,7 +53,7 @@ class SolverTest extends \PHPUnit_Framework_TestCase
      */
     public function testSolve($a, $b, $c, $root1, $root2, $precision = 3)
     {
-        $s = new Solver(new Equation($a, $b, $c));
+        $s = new Solver(new BasicQuadraticEquation($a, $b, $c));
         $s->setPrecision($precision);
         $s->solve();
 

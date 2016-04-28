@@ -54,7 +54,7 @@ class Solver implements Solvable
      *
      * @param Equation $equation
      */
-    public function __construct(Equation $equation)
+    public function __construct(QuadraticEquation $equation)
     {
         $this->equation = $equation;
     }
