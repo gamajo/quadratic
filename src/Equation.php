@@ -23,12 +23,14 @@ interface Equation
      *
      * @return array
      */
-    public function getArgsAsArray();
+    public function getArgsAsArray(): array;
 
     /**
      * Check if arguments are valid.
      *
+     * @param mixed[] $args Array of equation arguments.
+     *
      * @return bool
      */
-    public function hasValidArguments();
+    public function hasValidArguments($args): bool;
 }

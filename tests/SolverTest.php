@@ -11,6 +11,8 @@
 
 namespace Gamajo\Quadratic;
 
+use PHPUnit_Framework_TestCase;
+
 require dirname(__DIR__) . '/src/Solvable.php';
 require dirname(__DIR__) . '/src/Solver.php';
 
@@ -21,7 +23,7 @@ require dirname(__DIR__) . '/src/Solver.php';
  *
  * @package Gamajo\Quadratic
  */
-class SolverTest extends \PHPUnit_Framework_TestCase
+class SolverTest extends PHPUnit_Framework_TestCase
 {
     public function testObjectCanBeConstructedWithEquation()
     {

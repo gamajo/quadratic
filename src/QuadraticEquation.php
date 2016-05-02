@@ -19,17 +19,17 @@ namespace Gamajo\Quadratic;
 interface QuadraticEquation extends Equation
 {
     /**
-     * @return int
+     * For the equation Ax^2 + Bx + C = 0, get A.
      */
-    public function getA();
+    public function getA(): int;
 
     /**
-     * @return int
+     * For the equation Ax^2 + Bx + C = 0, get B.
      */
-    public function getB();
+    public function getB(): int;
 
     /**
-     * @return int
+     * For the equation Ax^2 + Bx + C = 0, get C.
      */
-    public function getC();
+    public function getC(): int;
 }
