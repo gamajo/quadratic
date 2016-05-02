@@ -23,9 +23,15 @@ require dirname(__DIR__) . '/src/Solver.php';
  * The Equation class is not mocked here, as it is a value object that has it's own unit test.
  *
  * @package Gamajo\Quadratic
+ *
+ * @coversDefaultClass \Gamajo\Quadratic\Solver
  */
 class SolverTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @covers \Gamajo\Quadratic\BasicQuadraticEquation
+     * @covers ::__construct()
+     */
     public function testObjectCanBeConstructedWithEquation()
     {
         $s = new Solver(new BasicQuadraticEquation(1, 5, 6));
@@ -33,6 +39,12 @@ class SolverTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf(Solver::class, $s);
     }
 
+    /**
+     * @covers \Gamajo\Quadratic\BasicQuadraticEquation
+     * @covers ::__construct()
+     * @covers ::setPrecision()
+     * @covers ::getPrecision()
+     */
     public function testPrecisionSetCorrectly()
     {
         $s = new Solver(new BasicQuadraticEquation(3, 4, 5));
@@ -42,17 +54,32 @@ class SolverTest extends PHPUnit_Framework_TestCase
         $this->assertSame(2, $s->getPrecision());
     }
 
+    /**
+     * @covers \Gamajo\Quadratic\BasicQuadraticEquation
+     * @covers ::__construct()
+     * @covers ::setPrecision()
+     */
     public function testPrecisionSetWithNegativeNumber()
     {
         $this->expectException(InvalidArgumentException::class);
 
         $s = new Solver(new BasicQuadraticEquation(3, 4, 5));
 
-        $s->setPrecision(- 2);
+        $s->setPrecision(-2);
     }
 
     /**
      * @dataProvider data
+     * @covers \Gamajo\Quadratic\BasicQuadraticEquation
+     * @covers ::__construct()
+     * @covers ::findImaginaryRoots()
+     * @covers ::findRealRoots()
+     * @covers ::get()
+     * @covers ::getBsmfac()
+     * @covers ::orderRoots()
+     * @covers ::saveRootsAsStrings()
+     * @covers ::setPrecision()
+     * @covers ::solve()
      */
     public function testSolve($a, $b, $c, $root1, $root2, $precision = 3)
     {
@@ -76,6 +103,7 @@ class SolverTest extends PHPUnit_Framework_TestCase
             [1, 5, 6, '-3', '-2'], // Negative roots.
             [1, 2, -3, '-3', '1'], // Positive and negative roots.
             [3, 4, 5, '-0.667 + 1.106i', '-0.667 - 1.106i'], // Imaginary roots.
+            [-3, -4, -5, '-0.667 + 1.106i', '-0.667 - 1.106i'], // Imaginary roots with negative A
             [1, 2, 1, '-1', '-1'], // b^2-4ac = 0.
             [8, 5, -2, '-0.902', '0.277'], // Floats.
 
@@ -84,8 +112,10 @@ class SolverTest extends PHPUnit_Framework_TestCase
             [1, 5, 6, '-3', '-2', 4], // Negative roots, precision 4.
             [1, 2, -3, '-3', '1', 4], // Positive and negative roots, precision 4.
             [3, 4, 5, '-0.6667 + 1.1055i', '-0.6667 - 1.1055i', 4], // Imaginary roots, precision 4.
+            [-3, -4, -5, '-0.6667 + 1.1055i', '-0.6667 - 1.1055i', 4], // Imaginary roots, with negative A, precision 4.
             [1, 2, 1, '-1', '-1', 4], // b^2-4ac = 0, precision 4.
             [8, 5, -2, '-0.9021', '0.2771', 4], // Floats, precision 4.
+            [-1, 5, 6, '-1', '6'], // Negative A, precision 4.
         ];
     }
 }
