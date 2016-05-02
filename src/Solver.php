@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * Solver class, for solving quadratic equations.
  *
@@ -52,7 +53,7 @@ class Solver implements Solvable
     /**
      * Initialize solver.
      *
-     * @param Equation $equation
+     * @param QuadraticEquation $equation
      */
     public function __construct(QuadraticEquation $equation)
     {

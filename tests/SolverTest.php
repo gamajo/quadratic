@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * Class for testing Solver
  *
@@ -64,6 +65,11 @@ class SolverTest extends PHPUnit_Framework_TestCase
         $this->assertSame($s->get(), $root1 . ' and ' . $root2, 'Both roots string is incorrect');
 	}
 
+    /**
+     * These are known roots for common equations.
+     *
+     * @return array
+     */
     public function data() {
         return [
             [1, -5, 6, '2', '3'],  // Positive roots.
