@@ -90,7 +90,7 @@ class Solver implements Solvable
      *
      * @return string Roots.
      */
-    public function get($return = 'both')
+    public function get($return = 'both'): string
     {
         if ('root1' === $return) {
             return $this->rootOne;
@@ -108,7 +108,7 @@ class Solver implements Solvable
      *
      * @return int Maximum number of decimal places.
      */
-    public function getPrecision()
+    public function getPrecision(): int
     {
         return $this->precision;
     }
@@ -118,13 +118,13 @@ class Solver implements Solvable
      *
      * @param int $precision
      */
-    public function setPrecision($precision)
+    public function setPrecision(int $precision)
     {
-        if ( ! is_int($precision) || $precision < 0) {
+        if ( $precision < 0) {
             throw new InvalidArgumentException('Precision must be an integer greater or equal to zero.');
         }
 
-        $this->precision = (int) $precision;
+        $this->precision = $precision;
     }
 
     /**
