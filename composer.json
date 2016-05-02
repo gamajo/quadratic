@@ -1,0 +1,22 @@
+{
+  "name": "gamajo/quadratic",
+  "description": "Handle solving of quadratic equations.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Gary Jones",
+      "homepage": "https://gamajo.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Gamajo\\Quadratic\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.2"
+  }
+}
