@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Gamajo\Quadratic;
 
 use PHPUnit_Framework_TestCase;
+use TypeError;
 
 require dirname(__DIR__) . '/src/Equation.php';
 require dirname(__DIR__) . '/src/InvalidArgumentException.php';
@@ -28,11 +29,11 @@ class EquationTest extends PHPUnit_Framework_TestCase
      * @covers            \Gamajo\Quadratic\BasicQuadraticEquation::__construct
      * @covers            \Gamajo\Quadratic\BasicQuadraticEquation::hasValidArguments
      * @uses              \Gamajo\Quadratic\BasicQuadraticEquation
-     * @expectedException \TypeError
      */
     public function testCannotBeConstructedFromNonIntegerValue()
     {
-        $this->setExpectedExceptionFromAnnotation();
+        $this->expectException(TypeError::class);
+
         new BasicQuadraticEquation(null, true, '6');
     }
 
@@ -52,10 +53,11 @@ class EquationTest extends PHPUnit_Framework_TestCase
      * @covers \Gamajo\Quadratic\BasicQuadraticEquation::__construct
      * @covers \Gamajo\Quadratic\BasicQuadraticEquation::hasValidArguments
      * @uses   \Gamajo\Quadratic\BasicQuadraticEquation
-     * @expectedException \TypeError
      */
     public function testObjectWillThrowExceptionForLessThanThreeParameters()
     {
+        $this->expectException(TypeError::class);
+
         new BasicQuadraticEquation(1, 2);
     }
 
@@ -63,10 +65,11 @@ class EquationTest extends PHPUnit_Framework_TestCase
      * @covers \Gamajo\Quadratic\BasicQuadraticEquation::__construct
      * @covers \Gamajo\Quadratic\BasicQuadraticEquation::hasValidArguments
      * @uses   \Gamajo\Quadratic\BasicQuadraticEquation
-     * @expectedException \Gamajo\Quadratic\InvalidArgumentException
      */
     public function testObjectWillThrowExceptionForMoreThanThreeParameters()
     {
+        $this->expectException(InvalidArgumentException::class);
+
         new BasicQuadraticEquation(1, 2, 3, 4);
     }
 

@@ -44,7 +44,7 @@ class SolverTest extends PHPUnit_Framework_TestCase
 
     public function testPrecisionSetWithNegativeNumber()
     {
-        $this->setExpectedException('\Gamajo\Quadratic\InvalidArgumentException');
+        $this->expectException(InvalidArgumentException::class);
 
         $s = new Solver(new BasicQuadraticEquation(3, 4, 5));
 
