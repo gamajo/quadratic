@@ -18,7 +18,7 @@ The QuadraticEquation interface constructor accepts values for _a_, _b_ and _c_ 
 ## Installation
 
 ```sh
-composer require gamajo/quadratic --save
+composer require gamajo/quadratic
 ```
 
 Requires PHP 7.
