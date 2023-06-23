@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Gamajo\Quadratic;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use TypeError;
 
 require dirname(__DIR__) . '/src/Equation.php';
@@ -23,7 +23,7 @@ require dirname(__DIR__) . '/src/InvalidArgumentException.php';
  *
  * @package Gamajo\Quadratic
  */
-class EquationTest extends PHPUnit_Framework_TestCase
+class EquationTest extends TestCase
 {
     /**
      * @covers            \Gamajo\Quadratic\BasicQuadraticEquation::__construct

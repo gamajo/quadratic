@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Gamajo\Quadratic;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 require dirname(__DIR__) . '/src/Solvable.php';
 require dirname(__DIR__) . '/src/Solver.php';
@@ -26,7 +26,7 @@ require dirname(__DIR__) . '/src/Solver.php';
  *
  * @coversDefaultClass \Gamajo\Quadratic\Solver
  */
-class SolverTest extends PHPUnit_Framework_TestCase
+class SolverTest extends TestCase
 {
     /**
      * @covers \Gamajo\Quadratic\BasicQuadraticEquation
