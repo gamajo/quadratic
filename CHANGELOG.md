@@ -3,7 +3,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
-- Nothing yet.
+- Fix Composer command in the README.
+- Allow newer versions of PHPUnit for running tests.
+- Remove `composer.lock`.
+- Update schema reference in `phpunit.xml`.
+- Add Composer script to run tests.
 
 ## [1.0.0] - 2016-05-03
 - Initial OOP release.
